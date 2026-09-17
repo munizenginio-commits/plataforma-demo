@@ -1,0 +1,504 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>NOVA — V15</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#07101f;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.app{max-width:520px;margin:auto;padding-bottom:82px}header{padding:18px;display:flex;justify-content:space-between;border-bottom:1px solid #24314a;position:sticky;top:0;background:#07101f;z-index:5}.brand{font-weight:900}.live{background:#ff3d67;padding:7px 11px;border-radius:20px;font-size:12px}.page{display:none;padding:18px}.active{display:block}.card{background:#111c30;border:1px solid #24314a;border-radius:18px;padding:16px;margin:13px 0}.video{height:390px;display:grid;place-items:center;font-size:55px;background:linear-gradient(145deg,#172744,#0b1425)}h1{margin:5px 0}p{color:#9ca9bf}button{border:0;border-radius:12px;padding:11px;background:#1a2942;color:#fff;font-weight:700}.on{background:#397df0!important}.actions{display:flex;gap:8px;flex-wrap:wrap}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}input,textarea{width:100%;padding:12px;margin:6px 0;background:#091425;color:#fff;border:1px solid #24314a;border-radius:11px}.avatar{width:85px;height:85px;border-radius:50%;margin:10px auto;display:grid;place-items:center;background:linear-gradient(145deg,#397df0,#995cff);font-size:28px;font-weight:900}.stats{display:flex;justify-content:space-around;text-align:center}.stats b{display:block;font-size:19px}nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(520px,100%);display:flex;justify-content:space-around;background:#091425;border-top:1px solid #24314a;padding:8px 0 calc(8px + env(safe-area-inset-bottom));z-index:6}nav button{font-size:10px;background:transparent;color:#91a0b9;padding:5px}.navon{color:#fff!important}.authbar{padding:10px 18px;border-bottom:1px solid #24314a;background:#091425;font-size:12px;color:#9ca9bf}.authbar b{color:#fff}.authmsg{font-size:13px;margin-top:8px}.danger{background:#7f2438}
+.real-post{margin:14px 0;padding:16px;border:1px solid #263650;border-radius:20px;background:#101d30}
+.real-post-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.real-avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#4678ff,#8a4dff);font-weight:900}
+.real-meta{font-size:12px;color:#91a0b8}
+.real-body{font-size:17px;line-height:1.45;white-space:pre-wrap;margin:10px 0 14px}
+.real-actions{display:flex;gap:8px;flex-wrap:wrap}
+.real-actions button{padding:9px 12px;font-size:13px}
+.real-comments{margin-top:12px;border-top:1px solid #263650;padding-top:10px}
+.real-comment{padding:8px 0;border-bottom:1px solid #1d2a3d;font-size:14px}
+.real-comment-input{display:flex;gap:8px;margin-top:10px}
+.real-comment-input input{margin:0;flex:1}
+
+/* V7 — immersive mobile social experience */
+body{background:#020914}
+#inicio{padding:0!important;min-height:calc(100vh - 72px)}
+#inicio>h1,#inicio>.hero,#inicio>.mock,#inicio>.actions,#inicio>.card:not(#realFeed){display:none!important}
+#realFeed{height:calc(100vh - 150px);overflow-y:auto;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch}
+#realFeed::-webkit-scrollbar{display:none}
+.real-post{position:relative;min-height:calc(100vh - 150px);margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:linear-gradient(160deg,#12213a,#07101e 62%,#020914);scroll-snap-align:start;overflow:hidden}
+.real-post:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 45% 35%,rgba(75,112,190,.22),transparent 38%),linear-gradient(to top,rgba(0,0,0,.8),transparent 45%);pointer-events:none}
+.real-post-head{position:absolute!important;left:18px;bottom:110px;right:88px;z-index:3;margin:0!important;align-items:center!important}
+.real-avatar{width:46px!important;height:46px!important;border:2px solid #fff}
+.real-meta{color:#c6d0df!important}
+.real-body{position:absolute;left:18px;right:90px;bottom:52px;z-index:3;margin:0!important;font-size:16px!important;font-weight:700;text-shadow:0 2px 8px #000}
+.real-actions{position:absolute!important;right:13px;bottom:54px;z-index:4;display:flex!important;flex-direction:column;align-items:center;gap:15px!important}
+.real-actions button{width:58px;min-height:52px;padding:7px 4px!important;border:0!important;background:rgba(8,18,33,.68)!important;backdrop-filter:blur(10px);font-size:11px!important;border-radius:18px!important}
+.real-comments{position:absolute!important;z-index:8;left:8px;right:8px;bottom:8px;max-height:55%;overflow:auto;background:rgba(6,15,28,.96);border:1px solid #2b3b55!important;border-radius:20px;padding:14px!important}
+.v7-top{position:sticky;top:0;z-index:20;height:66px;display:flex;align-items:center;justify-content:center;gap:24px;background:linear-gradient(to bottom,rgba(2,9,20,.95),rgba(2,9,20,.35));font-weight:900}
+.v7-top button{background:none;border:0;padding:10px 2px;color:#9ba8bb;font-size:16px}
+.v7-top button.active{color:#fff;border-bottom:3px solid #fff;border-radius:0}
+.v7-live{position:absolute;left:15px;color:#ff4168!important;font-size:13px!important}
+.authbar{display:none!important;font-size:12px!important;padding:7px 14px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+nav{background:rgba(2,9,20,.96)!important;backdrop-filter:blur(14px)}
+nav button{font-size:11px!important}
+@media(min-width:760px){#realFeed,.real-post{min-height:760px;height:760px;max-width:520px;margin:auto!important}#inicio{max-width:520px;margin:auto}}
+
+
+.feed-state{min-height:calc(100vh - 150px);display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;color:#aab6c8}
+
+/* V9 iPhone safe viewport */
+:root{--navh:76px}
+html,body{height:100%;overflow:hidden}
+body{min-height:100dvh}
+#inicio{height:calc(100dvh - var(--navh));overflow:hidden!important}
+.v7-top{height:58px!important}
+#realFeed{height:calc(100dvh - var(--navh) - 58px)!important;min-height:0!important;overflow-y:auto!important;padding:0!important}
+.real-post{height:calc(100dvh - var(--navh) - 58px)!important;min-height:calc(100dvh - var(--navh) - 58px)!important;position:relative!important}
+.real-post-head{left:16px!important;right:90px!important;bottom:116px!important}
+.real-body{left:16px!important;right:90px!important;bottom:60px!important;max-height:50px;overflow:hidden}
+.real-actions{right:12px!important;bottom:42px!important;gap:10px!important}
+.real-actions button{width:58px!important;min-height:50px!important}
+nav{height:var(--navh)!important;z-index:50!important;padding-bottom:max(8px,env(safe-area-inset-bottom))!important}
+@supports not (height:100dvh){
+#inicio{height:calc(100vh - var(--navh))}
+#realFeed,.real-post{height:calc(100vh - var(--navh) - 58px)!important;min-height:calc(100vh - var(--navh) - 58px)!important}
+}
+
+/* V10 — NOVA identity polish; feed logic unchanged */
+.brand{
+  font-size:27px!important;
+  font-weight:1000!important;
+  letter-spacing:.12em!important;
+}
+.real-post-head{
+  bottom:154px!important;
+}
+.real-body{
+  bottom:92px!important;
+  max-height:58px!important;
+  line-height:1.28!important;
+  font-size:17px!important;
+}
+.real-actions{
+  bottom:78px!important;
+}
+.v7-top{
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.v7-top button.active{
+  border-bottom-color:#fff!important;
+}
+nav{
+  border-top:1px solid rgba(255,255,255,.09)!important;
+}
+nav button{
+  opacity:.76;
+  transition:.18s ease;
+}
+nav button:first-child{
+  opacity:1;
+}
+.real-avatar{
+  box-shadow:0 0 0 2px rgba(255,255,255,.18),0 8px 24px rgba(0,0,0,.28);
+}
+
+
+/* V12 — NOVA identity. Feed/Supabase engineering remains from stable V10. */
+.nova-wordmark{
+  display:inline-flex;align-items:center;gap:1px;
+  font-size:29px;line-height:1;font-weight:900;
+  letter-spacing:.075em;color:#f7fbff
+}
+.nova-o{
+  width:23px;height:23px;display:inline-block;position:relative;
+  border-radius:50%;margin:0 2px 0 0;
+  background:
+    radial-gradient(circle at 50% 50%,#07101f 43%,transparent 45%),
+    conic-gradient(from 210deg,#5ed7ff,#2e72ff,#9cc9ff,#317dff,#5ed7ff);
+  box-shadow:0 0 5px rgba(93,180,255,.82),0 0 12px rgba(50,125,255,.52)
+}
+.nova-o:after{
+  content:"";position:absolute;width:6px;height:6px;border-radius:50%;
+  right:-1px;top:3px;background:#eefaff;
+  box-shadow:0 0 7px #fff,0 0 12px #58b7ff
+}
+
+
+/* V13 — NOVA visual system. Visual layer only. */
+:root{
+  --nova-bg:#020914;
+  --nova-panel:#071426;
+  --nova-panel-2:#0a1930;
+  --nova-line:rgba(121,170,255,.16);
+  --nova-blue:#4aa7ff;
+  --nova-blue-soft:#8bd5ff;
+  --nova-text:#f7fbff;
+  --nova-muted:#8e9db6;
+  --nova-live:#ff4168;
+}
+body{
+  background:
+    radial-gradient(circle at 50% -12%,rgba(45,111,255,.12),transparent 28%),
+    var(--nova-bg)!important;
+}
+.app{background:var(--nova-bg)}
+header{
+  min-height:76px;
+  padding:17px 20px!important;
+  align-items:center;
+  background:linear-gradient(180deg,rgba(4,13,29,.99),rgba(3,11,25,.97))!important;
+  border-bottom:1px solid var(--nova-line)!important;
+}
+.nova-wordmark{
+  font-size:30px!important;
+  letter-spacing:.09em!important;
+  filter:drop-shadow(0 8px 22px rgba(0,0,0,.22));
+}
+.nova-o{
+  width:24px!important;height:24px!important;
+  box-shadow:
+    0 0 4px rgba(139,213,255,.90),
+    0 0 11px rgba(74,167,255,.55),
+    0 0 21px rgba(47,104,255,.22)!important;
+}
+.live{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,65,104,.10)!important;
+  color:#ff6381!important;
+  border:1px solid rgba(255,65,104,.50);
+  padding:8px 12px!important;
+  font-weight:900;
+  letter-spacing:.035em;
+  box-shadow:0 0 18px rgba(255,65,104,.06);
+}
+.v7-top{
+  background:linear-gradient(180deg,rgba(3,11,25,.99),rgba(2,9,20,.96))!important;
+  border-bottom:1px solid var(--nova-line)!important;
+}
+.v7-top button{
+  color:#8796ad!important;
+  font-weight:850!important;
+  letter-spacing:.01em;
+}
+.v7-top button.active{
+  color:var(--nova-text)!important;
+  border-bottom-color:var(--nova-blue-soft)!important;
+  text-shadow:0 0 14px rgba(96,181,255,.18);
+}
+.v7-live{color:var(--nova-live)!important}
+.real-post{
+  background:
+    radial-gradient(circle at 47% 34%,rgba(46,107,224,.22),transparent 35%),
+    radial-gradient(circle at 74% 64%,rgba(57,124,234,.08),transparent 25%),
+    linear-gradient(160deg,#10203b 0%,#071426 56%,#020914 100%)!important;
+}
+.real-post:before{
+  background:
+    radial-gradient(circle at 45% 35%,rgba(77,139,255,.10),transparent 39%),
+    linear-gradient(to top,rgba(0,0,0,.86),transparent 47%)!important;
+}
+.real-avatar{
+  background:linear-gradient(145deg,#407fff,#7357ff)!important;
+  border:2px solid rgba(255,255,255,.92)!important;
+  box-shadow:0 0 0 2px rgba(91,171,255,.25),0 8px 25px rgba(0,0,0,.34)!important;
+}
+.real-meta{color:#a9b7cb!important}
+.real-actions button{
+  background:rgba(5,16,31,.72)!important;
+  border:1px solid rgba(114,169,255,.10)!important;
+  box-shadow:0 8px 24px rgba(0,0,0,.18);
+}
+.real-actions button:active{
+  transform:scale(.96);
+  background:rgba(20,55,102,.78)!important;
+}
+nav{
+  background:rgba(3,11,24,.985)!important;
+  border-top:1px solid var(--nova-line)!important;
+}
+nav button{
+  color:#72839e!important;
+  opacity:1!important;
+  font-weight:750!important;
+}
+nav button.navon{
+  color:#f5f9ff!important;
+  text-shadow:0 0 12px rgba(74,167,255,.20);
+}
+.card{
+  background:linear-gradient(160deg,rgba(15,31,56,.96),rgba(7,20,38,.96))!important;
+  border-color:var(--nova-line)!important;
+}
+input,textarea{
+  background:#061326!important;
+  border-color:rgba(113,163,240,.20)!important;
+}
+button{transition:transform .16s ease,background .16s ease,color .16s ease}
+.feed-state{color:#aab8cc!important}
+
+
+/* V14 — personality for NOVA destinations. No feed/Supabase logic changes. */
+.page:not(#inicio){
+  min-height:calc(100dvh - var(--navh));
+  padding:24px 18px 110px!important;
+  background:
+    radial-gradient(circle at 85% 4%,rgba(54,126,255,.12),transparent 24%),
+    linear-gradient(180deg,#061326 0%,#020914 72%)!important;
+  overflow-y:auto!important;
+}
+.page:not(#inicio) h1{
+  font-size:31px;margin:4px 0 7px;letter-spacing:-.035em;
+}
+.page:not(#inicio)>p{
+  margin-top:0;color:#93a4bd;line-height:1.45;
+}
+.nova-section-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  color:#8bd5ff;font-size:11px;font-weight:900;
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;
+}
+.nova-section-kicker:before{
+  content:"";width:8px;height:8px;border-radius:50%;
+  border:2px solid #66bdff;box-shadow:0 0 10px rgba(74,167,255,.65);
+}
+#explorar .grid .card{
+  min-height:116px;display:flex;flex-direction:column;justify-content:flex-end;
+  font-size:24px;overflow:hidden;position:relative;
+}
+#explorar .grid .card b{font-size:14px;margin-top:8px}
+#explorar input{
+  border-radius:18px!important;padding:15px 16px!important;margin:12px 0 16px!important;
+}
+#crear .card:first-of-type{
+  border:1px solid rgba(104,170,255,.24)!important;
+  box-shadow:0 18px 45px rgba(0,0,0,.18);
+}
+#crear textarea{min-height:128px;resize:none}
+#crear button,#perfil button:not(.danger){
+  background:linear-gradient(135deg,#2777f5,#54b7ff)!important;
+  color:white;box-shadow:0 8px 24px rgba(44,130,255,.18);
+}
+#envivo .card{border-left:3px solid #ff4168!important}
+#envivo>button{
+  width:100%;background:rgba(255,65,104,.13)!important;
+  color:#ff6d89;border:1px solid rgba(255,65,104,.42)!important;
+}
+#comunidad .card{
+  min-height:76px;display:flex;align-items:center;gap:10px;
+}
+#perfil .avatar{
+  width:92px;height:92px;
+  background:linear-gradient(145deg,#347fff,#795cff)!important;
+  border:2px solid rgba(255,255,255,.9);
+  box-shadow:0 0 0 3px rgba(76,164,255,.18),0 16px 40px rgba(0,0,0,.28);
+}
+#perfil .stats{border-radius:20px}
+#perfil .stats b{color:#f7fbff}
+.nova-mini-brand{
+  display:flex;align-items:center;gap:7px;margin-bottom:20px;
+  font-size:12px;font-weight:900;letter-spacing:.13em;color:#dcecff;
+}
+.nova-mini-ring{
+  width:16px;height:16px;border-radius:50%;display:inline-block;
+  border:3px solid #4aa7ff;
+  box-shadow:0 0 9px rgba(74,167,255,.72);
+}
+
+
+/* V15 — product architecture: Community, Activity and NOVA Creators */
+.creator-tools{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;
+  margin:16px 0 18px;
+}
+.creator-tool{
+  min-height:86px;text-align:left;padding:14px!important;border-radius:18px!important;
+  background:linear-gradient(155deg,rgba(16,38,70,.96),rgba(7,21,40,.96))!important;
+  border:1px solid rgba(111,169,255,.18)!important;color:#f7fbff!important;
+  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:4px;
+}
+.creator-tool span{font-size:22px}
+.creator-tool b{font-size:14px}
+.creator-tool small{font-size:10px;color:#8191aa}
+.creator-tool.active{
+  grid-column:span 2;
+  background:linear-gradient(135deg,rgba(36,105,222,.30),rgba(15,40,75,.96))!important;
+  border-color:rgba(91,181,255,.46)!important;
+  box-shadow:0 0 26px rgba(58,139,255,.08);
+}
+.creator-tool.live-tool span{color:#ff5274;text-shadow:0 0 10px rgba(255,65,104,.45)}
+.activity-stack{display:grid;gap:12px;margin-top:18px}
+.activity-card{
+  min-height:88px;display:flex;align-items:center;gap:14px!important;
+}
+.activity-card>span{
+  width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+  background:rgba(71,145,255,.10);font-size:20px;
+}
+.activity-card div{display:flex;flex-direction:column;gap:5px}
+.activity-card b{font-size:16px}
+.activity-card small{color:#8f9fb7;line-height:1.35}
+
+</style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script></head>
+<body><div class="app"><header><b class="brand nova-wordmark" aria-label="NOVA"><span>N</span><span class="nova-o" aria-hidden="true"></span><span>V</span><span>A</span></b><span class="live">● EN VIVO</span></header><div class="authbar" id="authStatus">🔒 No has iniciado sesión</div>
+<section id="inicio" class="page active">
+<div class="v7-top"><button class="v7-live" onclick="show('live')">● EN VIVO</button><button>Siguiendo</button><button class="active">Para ti</button></div>
+<div id="realFeed"></div><h1>Para ti</h1><div class="card video">▶</div><div class="actions"><button id="like" onclick="tog('like','❤️ Me gusta','🤍 Me gusta')">🤍 Me gusta</button><button onclick="openComments()">💬 Comentar</button><button onclick="sharePost()">↗<br>Compartir</button><button id="save" onclick="tog('save','🔖 Guardado','🔖 Guardar')">🔖 Guardar</button></div><div id="commentBox" class="card" style="display:none">
+<b>💬 Comentarios</b>
+<textarea id="commentText" rows="3" placeholder="Escribe un comentario..."></textarea>
+<div class="actions"><button onclick="addComment()">Publicar comentario</button><button onclick="openComments()">Cerrar</button></div>
+<div id="commentsList"></div>
+</div><div class="card"><b>@vozdelcamino ✓</b><p>Una palabra puede cambiar tu perspectiva. #Fe #Biblia</p><button id="follow" onclick="tog('follow','✓ Siguiendo','+ Seguir')">+ Seguir</button></div></section>
+<section id="explorar" class="page"><div class="nova-mini-brand"><span class="nova-mini-ring"></span>NOVA</div><div class="nova-section-kicker">Descubre</div><h1>Explorar</h1><p>Descubre contenido, temas y creadores.</p><input placeholder="Buscar videos, temas o creadores"><div class="grid"><div class="card">📖<br><b>Estudios bíblicos</b></div><div class="card">🎙️<br><b>Predicaciones</b></div><div class="card">🙌<br><b>Testimonios</b></div><div class="card">🎵<br><b>Música</b></div><div class="card">👥<br><b>Familia</b></div><div class="card">🎓<br><b>Formación</b></div></div><div class="card"><b>🔥 Tendencias</b><p>#FeExaminada · #InvestigaciónBíblica</p></div></section>
+<section id="crear" class="page"><div class="nova-mini-brand"><span class="nova-mini-ring"></span>NOVA CREATORS</div><div class="nova-section-kicker">Tu voz</div><h1>Crear</h1><p>Comparte una idea que trascienda.</p>
+<div class="creator-tools" aria-label="Herramientas de creación">
+  <button type="button" class="creator-tool active"><span>✍️</span><b>Publicación</b></button>
+  <button type="button" class="creator-tool"><span>🖼️</span><b>Foto</b><small>Próximamente</small></button>
+  <button type="button" class="creator-tool"><span>🎬</span><b>Video</b><small>Próximamente</small></button>
+  <button type="button" class="creator-tool"><span>🎵</span><b>Música</b><small>Próximamente</small></button>
+  <button type="button" class="creator-tool live-tool"><span>●</span><b>LIVE</b><small>Próximamente</small></button>
+</div><div class="card"><textarea id="post" rows="5" placeholder="¿Qué quieres compartir?"></textarea><button onclick="publish()">Publicar</button><p id="msg"></p></div></section>
+<section id="envivo" class="page"><div class="nova-mini-brand"><span class="nova-mini-ring"></span>NOVA LIVE</div><div class="nova-section-kicker">Ahora</div><h1>En vivo</h1><p>Conecta con transmisiones y comunidades en tiempo real.</p><div class="card"><b>🔴 Estudio bíblico abierto</b><p>Comunidad NOVA · 💬 Chat</p></div><div class="card"><b>🔴 Noche de testimonios</b><p>Comunidad NOVA · 💬 Chat</p></div><button>🔴 Transmitir ahora</button><p>NOVA Live se activará en una próxima fase.</p></section>
+<section id="comunidad" class="page"><div class="nova-mini-brand"><span class="nova-mini-ring"></span>NOVA</div><div class="nova-section-kicker">Conecta</div><h1>Comunidad</h1><p>Conversa, crea grupos y encuentra tu comunidad.</p><div class="card">💬 <b>Conversaciones</b></div><div class="card">👥 <b>Grupos y comunidades</b><p>Biblia · Jóvenes · Familia · Liderazgo</p></div><div class="card">🫂 <b>Mis comunidades</b></div><div class="card">✨ <b>Personas sugeridas</b></div></section>
+
+<section id="actividad" class="page">
+  <div class="nova-mini-brand"><span class="nova-mini-ring"></span>NOVA</div>
+  <div class="nova-section-kicker">Al día</div>
+  <h1>Actividad</h1>
+  <p>Lo que está pasando alrededor de tu cuenta.</p>
+  <div class="activity-stack">
+    <div class="card activity-card"><span>❤️</span><div><b>Me gusta</b><small>Reacciones a tus publicaciones aparecerán aquí.</small></div></div>
+    <div class="card activity-card"><span>💬</span><div><b>Comentarios</b><small>Nuevas respuestas y conversaciones.</small></div></div>
+    <div class="card activity-card"><span>👤</span><div><b>Nuevos seguidores</b><small>Personas que comienzan a seguirte.</small></div></div>
+    <div class="card activity-card"><span>＠</span><div><b>Menciones</b><small>Cuando alguien te mencione en NOVA.</small></div></div>
+  </div>
+</section>
+
+<section id="perfil" class="page"><div class="nova-mini-brand"><span class="nova-mini-ring"></span>NOVA PROFILE</div><div id="authCard" class="card"><h2>Entrar a NOVA</h2><p>Tu cuenta será tu identidad real dentro de la comunidad.</p><input id="authName" placeholder="Nombre público"><input id="authEmail" type="email" autocomplete="email" placeholder="Correo electrónico"><input id="authPassword" type="password" autocomplete="current-password" minlength="6" placeholder="Contraseña"><div class="actions"><button onclick="signUp()">Crear cuenta</button><button onclick="signIn()">Iniciar sesión</button></div><p id="authMsg" class="authmsg"></p></div><div id="realProfile" style="display:none"><div style="text-align:center"><div class="avatar">EM</div><h1 id="pn">Mi perfil</h1><p id="pb">Creador · Comunidad · Investigación bíblica</p></div><div class="card stats"><div><b id="pc">0</b>Publicaciones</div><div><b>0</b>Seguidores</div><div><b>0</b>Siguiendo</div></div><div class="card"><b>Editar perfil</b><input id="ni" placeholder="Nombre"><textarea id="bi" placeholder="Biografía"></textarea><button onclick="profile()">Guardar cambios</button></div><div class="card"><button class="danger" onclick="signOut()">Cerrar sesión</button></div><div id="posts"></div></div></section>
+<nav><button data-p="inicio" class="navon">🏠<br>Inicio</button><button data-p="explorar">🔎<br>Explorar</button><button data-p="crear">➕<br>Crear</button><button data-p="comunidad">💬<br>Comunidad</button><button data-p="actividad">🔔<br>Actividad</button><button data-p="perfil">👤<br>Perfil</button></nav></div>
+<script>const SUPABASE_URL="https://oscrrfqglmonprgdhgwi.supabase.co";const SUPABASE_PUBLISHABLE_KEY="sb_publishable_YJvRvYaCPPfjW_q_oz535A_lxi-Pps8";const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);const G=x=>document.getElementById(x);
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function authMessage(t,ok=false){let e=G("authMsg");if(e){e.textContent=t;e.style.color=ok?"#78e6a1":"#ff8aa3"}}
+async function ensureProfile(u){if(!u)return null;let q=await sb.from("profiles").select("*").eq("id",u.id).maybeSingle();if(q.error)throw q.error;if(q.data)return q.data;let raw=(u.user_metadata&&u.user_metadata.display_name)||(u.email||"Usuario").split("@")[0],clean=(raw.toLowerCase().replace(/[^a-z0-9_]/g,"").slice(0,20)||"user");let username=(clean.length>=3?clean:"user")+"_"+u.id.replace(/-/g,"").slice(0,6);let r=await sb.from("profiles").insert({id:u.id,username,display_name:raw.slice(0,80),bio:""}).select().single();if(r.error)throw r.error;return r.data}
+async function signUp(){let email=G("authEmail").value.trim(),password=G("authPassword").value,name=G("authName").value.trim()||"Usuario";if(!email||password.length<6){authMessage("Escribe un correo válido y una contraseña de al menos 6 caracteres.");return}authMessage("Creando cuenta…");let {data,error}=await sb.auth.signUp({email,password,options:{data:{display_name:name}}});if(error){authMessage(error.message);return}if(data.session){try{await ensureProfile(data.user);authMessage("✓ Cuenta creada e iniciada.",true);await refreshAuth()}catch(e){authMessage(e.message)}}else authMessage("✓ Cuenta creada. Revisa tu correo y confirma el enlace antes de iniciar sesión.",true)}
+async function signIn(){let email=G("authEmail").value.trim(),password=G("authPassword").value;if(!email||!password){authMessage("Escribe tu correo y contraseña.");return}authMessage("Entrando…");let {data,error}=await sb.auth.signInWithPassword({email,password});if(error){authMessage(error.message);return}try{await ensureProfile(data.user);await refreshAuth()}catch(e){authMessage(e.message)}}
+async function signOut(){await sb.auth.signOut();await refreshAuth()}
+async function refreshAuth(){let {data:{session}}=await sb.auth.getSession(),u=session?.user,logged=!!u;G("authCard").style.display=logged?"none":"block";G("realProfile").style.display=logged?"block":"none";G("authStatus").innerHTML=logged?"🟢 Conectado como <b>"+esc(u.email)+"</b>":"🔒 No has iniciado sesión";if(logged){try{let p=await ensureProfile(u);G("pn").textContent=p.display_name||"Mi perfil";G("pb").textContent=p.bio||"Creador · Comunidad";G("ni").value=p.display_name||"";G("bi").value=p.bio||""}catch(e){console.error(e)}}}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));G(b.dataset.p).classList.add("active");document.querySelectorAll("nav button").forEach(x=>x.classList.remove("navon"));b.classList.add("navon");scrollTo(0,0)});function tog(k,a,b){let v=localStorage.getItem(k)!="1";localStorage.setItem(k,v?"1":"0");G(k).textContent=v?a:b;G(k).classList.toggle("on",v)}function restore(k,a,b){let v=localStorage.getItem(k)=="1";G(k).textContent=v?a:b;G(k).classList.toggle("on",v)}async function profile(){let {data:{user}}=await sb.auth.getUser();if(!user){return}let display_name=(G("ni").value.trim()||"Mi perfil").slice(0,80),bio=G("bi").value.trim().slice(0,500);let {error}=await sb.from("profiles").update({display_name,bio}).eq("id",user.id);if(error){alert("No se pudo guardar: "+error.message);return}G("pn").textContent=display_name;G("pb").textContent=bio||"Creador · Comunidad";alert("✓ Perfil guardado")}async function publish(){
+ let t=G("post").value.trim();if(!t)return;
+ let {data:{user}}=await sb.auth.getUser();
+ if(!user){G("msg").textContent="Inicia sesión para publicar.";show("perfil");return}
+ let {error}=await sb.from("posts").insert({author_id:user.id,body:t});
+ if(error){G("msg").textContent="Error: "+error.message;return}
+ G("post").value="";G("msg").textContent="✓ Publicado en NOVA.";
+ await loadRealPosts();show("inicio")
+}
+
+function openComments(){
+ let b=G("commentBox"); b.style.display=b.style.display==="none"?"block":"none";
+ if(b.style.display==="block"){renderComments();setTimeout(()=>G("commentText").focus(),50)}
+}
+function addComment(){
+ let t=G("commentText").value.trim(); if(!t)return;
+ let a=JSON.parse(localStorage.getItem("novaComments")||"[]");
+ a.unshift({text:t,time:new Date().toLocaleString()});
+ localStorage.setItem("novaComments",JSON.stringify(a));
+ G("commentText").value=""; renderComments();
+}
+function renderComments(){
+ let a=JSON.parse(localStorage.getItem("novaComments")||"[]");
+ G("commentsList").innerHTML=a.length?a.map(c=>'<div class="card"><b>Pastor Muñiz</b><p>'+c.text.replace(/</g,"&lt;")+'</p><small>'+c.time+'</small></div>').join(""):'<p>Todavía no hay comentarios.</p>';
+}
+async function sharePost(){
+ const data={title:"NOVA",text:"Mira esta publicación en NOVA",url:location.href};
+ try{
+   if(navigator.share){await navigator.share(data)}
+   else if(navigator.clipboard){await navigator.clipboard.writeText(location.href);alert("Enlace copiado.")}
+   else{prompt("Copia este enlace:",location.href)}
+ }catch(e){}
+}
+async function loadRealPosts(){
+ const feed=G("realFeed");
+ if(!feed)return;
+ feed.innerHTML=`<div class="feed-state">Cargando NOVA…</div>`;
+ const {data:rows,error}=await sb.from("posts")
+   .select("id,body,created_at,author_id")
+   .order("created_at",{ascending:false}).limit(50);
+ if(error){console.error("feed",error);feed.innerHTML=`<div class="feed-state">No pudimos cargar el feed.<br><small>${esc(error.message)}</small></div>`;return}
+ if(!rows||!rows.length){feed.innerHTML=`<div class="feed-state">Todavía no hay publicaciones.</div>`;return}
+
+ const authorIds=[...new Set(rows.map(r=>r.author_id))];
+ const postIds=rows.map(r=>r.id);
+ const [pr,lr,cr,ur]=await Promise.all([
+   sb.from("profiles").select("id,display_name,username").in("id",authorIds),
+   sb.from("post_likes").select("post_id,user_id").in("post_id",postIds),
+   sb.from("comments").select("id,post_id,body,created_at,author_id").in("post_id",postIds).order("created_at",{ascending:true}),
+   sb.auth.getUser()
+ ]);
+ const profiles=pr.data||[], likes=lr.data||[], comments=cr.data||[];
+ const commentAuthorIds=[...new Set(comments.map(c=>c.author_id))];
+ let commentProfiles=[];
+ if(commentAuthorIds.length){
+   const rr=await sb.from("profiles").select("id,display_name,username").in("id",commentAuthorIds);
+   commentProfiles=rr.data||[];
+ }
+ const pm=Object.fromEntries([...profiles,...commentProfiles].map(p=>[p.id,p]));
+ const user=ur.data&&ur.data.user;
+
+ feed.innerHTML=rows.map(r=>{
+   const p=pm[r.author_id]||{}, ls=likes.filter(x=>x.post_id===r.id), cs=comments.filter(x=>x.post_id===r.id);
+   const liked=!!user&&ls.some(x=>x.user_id===user.id);
+   const initials=esc(((p.display_name||"N").trim().slice(0,2)).toUpperCase());
+   return `<article class="real-post">
+     <div class="real-post-head"><div class="real-avatar">${initials}</div><div><b>${esc(p.display_name||"Creador NOVA")}</b><div class="real-meta">@${esc(p.username||"nova")}</div></div></div>
+     <div class="real-body">${esc(r.body)}</div>
+     <div class="real-actions">
+       <button onclick="toggleRealLike('${r.id}',${liked})">${liked?"♥":"♡"}<br>${ls.length}</button>
+       <button onclick="toggleCommentsBox('${r.id}')">💬<br>${cs.length}</button>
+       <button onclick="shareRealPost('${r.id}')">↗<br>Compartir</button>
+     </div>
+     <div class="real-comments" id="rc-${r.id}" style="display:none">
+       <div>${cs.map(c=>`<div class="real-comment"><b>${esc((pm[c.author_id]&&pm[c.author_id].display_name)||"Usuario")}</b> ${esc(c.body)}</div>`).join("")||"<span class='real-meta'>Sé el primero en comentar.</span>"}</div>
+       <div class="real-comment-input"><input id="ri-${r.id}" maxlength="2000" placeholder="Escribe un comentario..."><button onclick="addRealComment('${r.id}')">Enviar</button></div>
+     </div>
+   </article>`;
+ }).join("");
+
+ if(user){
+   const mine=rows.filter(r=>r.author_id===user.id);
+   if(G("pc"))G("pc").textContent=mine.length;
+   if(G("posts"))G("posts").innerHTML=mine.map(r=>`<div class="card"><p>${esc(r.body)}</p><small>${new Date(r.created_at).toLocaleString()}</small></div>`).join("");
+ }
+}
+async function toggleRealLike(postId,liked){
+ const {data:{user}}=await sb.auth.getUser();
+ if(!user){alert("Inicia sesión para dar Me gusta.");show("perfil");return}
+ let q=liked?await sb.from("post_likes").delete().eq("post_id",postId).eq("user_id",user.id)
+             :await sb.from("post_likes").insert({post_id:postId,user_id:user.id});
+ if(q.error){alert("No se pudo guardar el Me gusta: "+q.error.message);return}
+ await loadRealPosts();
+}
+function toggleCommentsBox(postId){
+ const e=G("rc-"+postId); if(e)e.style.display=e.style.display==="none"?"block":"none";
+}
+async function addRealComment(postId){
+ const {data:{user}}=await sb.auth.getUser();
+ if(!user){alert("Inicia sesión para comentar.");show("perfil");return}
+ const input=G("ri-"+postId),body=(input?.value||"").trim(); if(!body)return;
+ const {error}=await sb.from("comments").insert({post_id:postId,author_id:user.id,body});
+ if(error){alert("No se pudo comentar: "+error.message);return}
+ await loadRealPosts();
+ const e=G("rc-"+postId); if(e)e.style.display="block";
+}
+async function shareRealPost(postId){
+ const url=location.href.split("#")[0]+"#post-"+postId;
+ try{if(navigator.share)await navigator.share({title:"NOVA",url});else{await navigator.clipboard.writeText(url);alert("Enlace copiado.")}}catch(e){}
+}
+function load(){let n=localStorage.getItem("nn")||"Mi perfil",b=localStorage.getItem("nb")||"Creador · Comunidad · Investigación bíblica",a=JSON.parse(localStorage.getItem("np")||"[]");G("pn").textContent=n;G("pb").textContent=b;G("ni").value=n;G("bi").value=b;G("pc").textContent=a.length;G("posts").innerHTML=a.length?"<h2>Mis publicaciones</h2>"+a.map(x=>'<div class="card">'+x.replace(/</g,"&lt;")+"</div>").join(""):""}restore("like","❤️ Me gusta","🤍 Me gusta");restore("save","🔖 Guardado","🔖 Guardar");restore("follow","✓ Siguiendo","+ Seguir");load();
+(async()=>{
+  try{
+    await refreshAuth();
+    await loadRealPosts();
+  }catch(e){
+    console.error("NOVA boot",e);
+    const feed=G("realFeed");
+    if(feed && !feed.innerHTML.trim()){
+      feed.innerHTML='<div class="feed-state">NOVA no pudo cargar el feed. Abre esta versión desde GitHub Pages y vuelve a intentar.</div>';
+    }
+  }
+})();
+sb.auth.onAuthStateChange(()=>setTimeout(async()=>{
+  try{await refreshAuth();await loadRealPosts()}catch(e){console.error("NOVA auth refresh",e)}
+},0));</script></body></html>
